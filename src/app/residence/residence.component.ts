@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Residence } from '../model/Residence';
+import { Apartment } from '../model/appartment';
 
 @Component({
   selector: 'app-residence',
@@ -18,5 +19,16 @@ export class ResidenceComponent {
     "image":"../../assets/images/R4.jpg"}
     ];
     
+
+    listApartments:Apartment[]=[
+      {id:1,"appartNum":1,"floorNum":0,"surface":100,"terrace":"oui","surfaceTerrace":20,"category":"S+1","description":"AppartementS+1","residence":this.listResidences[0] },
+      {id:2,"appartNum":2,"floorNum":0,"surface":130,"terrace":"non","surfaceTerrace":0,"category":"S+2","description":"AppartementS+2","residence":this.listResidences[0] },
+      {id:3,"appartNum":3,"floorNum":0,"surface":150,"terrace":"oui","surfaceTerrace":30,"category":"S+3","description":"AppartementS+3","residence":this.listResidences[1] },
+  
+    ];
+    appart:Apartment[]=[];
+    filtreAPP(id :number){
+      this.appart=this.listApartments.filter(apart=>apart.residence.id==id)
+    }
 
 }

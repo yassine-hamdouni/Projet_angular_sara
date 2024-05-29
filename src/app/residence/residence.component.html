@@ -1,7 +1,38 @@
 <div>
     <ul *ngFor="let residence of listResidences">
         <li>
-            {{residence.id}}{{residence.address}}{{residence.image}}{{residence.name}}
+            {{residence.id}}{{residence.address}}{{residence.image}}{{residence.name}}<button  (click)="filtreAPP(residence.id)" >Show appart</button>
         </li>
     </ul>
+</div>
+
+<div *ngIf="appart.length==0">
+    The list is empty.
+</div>
+<div *ngIf="appart.length!=0">
+    <table>
+        <tr>
+            <th>id</th>
+            <th>appartNum</th>
+            <th>floorNum</th>
+            <th>surface</th>
+            <th>terrace</th>
+            <th>"surfaceTerrace</th>
+            <th>category</th>
+            <th>description</th>
+        </tr>
+        <tr *ngFor="let a of appart">
+            <td>{{a.id}}</td>
+            <td>{{a.appartNum}}</td>
+            <td>{{a.floorNum}}</td>
+            <td>{{a.surface}}</td>
+            <td>{{a.terrace}}</td>
+            <td>{{a.surfaceTerrace}}</td>
+            <td>{{a.category}}</td>
+            <td>{{a.description}}</td>
+    
+    
+        </tr>
+    </table>
+    
 </div>
